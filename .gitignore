@@ -1,0 +1,17 @@
+/**/*.aux
+/**/*.auxlock
+/**/*.bbl
+/**/*.bcf
+/**/*.blg
+/**/*.log
+/**/*.out
+/**/*.pdf
+/**/*.toc
+/**/*.gz
+/**/*.run.xml
+/**/*.synctex.gz
+/**/*.synctex(busy)
+/**/*.fdb_*
+/**/*.fls
+/**/*.xdv
+tikz-cache/

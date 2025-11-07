@@ -1,0 +1,107 @@
+\documentclass{article}
+\usepackage[british]{babel}
+\usepackage{appendix}
+\usepackage{hyperref}
+\usepackage{csquotes}
+% Use numeric citations and keep bibliography in citation order (appearance)
+\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\addbibresource{msr-proposal.bib}
+
+\author{Bart Peiren}
+\title{Research proposal:\\Explore and develop a route planner for people with limited mobility with OpenStreetMap}
+
+\begin{document}
+    \maketitle
+
+\begin{abstract}
+    People with limited mobility encounter obstacles which are not taken into account by common route planners.
+
+    In 2023-2024 Amsterdam Intelligence at the Municipality of Amsterdam Intelligence created a route planner for
+    people with reduced mobility. Their source code is still available 
+    \cite{AmsterdamAITeamAccessible_Route_PlanningRepository}, but their blog post no longer is. 
+
+    The data source in their implementation are 3D point clouds, obtained via LiDAR scans
+    \cite{fiawoPuntenwolkenVanGedetailleerde2022}. While this is an ideal source, it might not be be available
+    for every location nor be kept up-to-date.
+    
+    OpenStreetMap \cite{OpenStreetMap} offers a more limited, but freely and widely available map
+    which might be sufficient for this goal. The goal is to verify whether its data suffices to build a 
+    limited mobility route planner and if so, build such a route planner.
+\end{abstract}
+
+
+\section*{Introduction}
+
+Common route planners create pedestrian routes for able bodied people. They do not take into account
+obstacles which less mobile people might experience. This makes it harder for them to leave their home,
+especially when travelling to unknown places.
+
+While the data obtained via a LiDAR scan offers many possibilities, it also comes with two downsides: the whole 
+environment where we want to plan a route needs to be mapped with special devices, and afterwards this data 
+needs to be analysed so the useful data is extracted from it.
+
+OpenStreetMap already provides a map for most of the world. It might not be detailed enough for all use, but 
+most likely those areas will not be LiDAR scanned either. 
+
+If we build an accessible route planner based on OpenStreetMap, in a later phase the LiDAR data can be processed
+and based on it, OpenStreetMap could be updated automatically. In this way the LiDAR data serves a broader goal
+rather than the limited few applications.
+
+
+\section*{Literature review}
+
+The website on Amsterdam Intelligence's work \cite{CreatingPersonalizedRoute} unfortunately is no longer 
+available. Fortunately their source code remains available on GitHub
+\cite{AmsterdamAITeamAccessible_Route_PlanningRepository} for further study. Their work was aimed at 
+The Netherlands, so can not be widely reused abroad.
+
+\citetitle{cohenRoutePlanningBlind2021} describes an implementation similiar what I want to achieve, but
+for blind people. Planning a route for less mobile people could be similar in idea, but with different weights.
+
+In \citeyear{biagiMappingAccessabilityOpenStreetMap2020} a study was conducted on different techniques of 
+adding data in OpenStreetMap with respect to accessibility \cite{biagiMappingAccessabilityOpenStreetMap2020}.
+This is important since OpenStreetMap depends on volunteers to gather and insert all the data. The easier
+it is to add all the data required for accessibility, the more data will be made available, and the 
+better an accessible route planner will be able to work.
+
+
+\section*{Research methodology}
+
+As we intend to to build a route planner for less mobile people, we should first define our precise target
+audience. There are various forms of reduced mobility: wheelchair bound people, people using crutches temporarily 
+or permanently, being less mobile due to age, blindness, \dots. Do we take all forms into account, or do we focus on a certain subgroup?
+
+Once we know our target audience, we need to define their needs for an \textit{accessible route}. Several 
+aspects impact a route:
+
+\begin{itemize}
+    \item What kind of slope is acceptable?
+    \item What is the impact of different kinds of surface: concrete, paving stones, grass, mud, cobblestones, etc.
+    \item Is the walkway separated from the road?
+    \item How wide is the walkway?
+    \item Is there a curb, and how high is it?
+    \item Are there stairs? Do they include a ramp?
+\end{itemize}
+
+Using these requirements, we can assign different weights to the different aspects. Given that different aspects
+impact different ableness differently, weights could differ for different populations.
+
+When building the route planner, it will need to take these weights into account based on a chosen profile.
+
+\section*{Expected results}
+
+Planning routes based on commonly and freely available mapping data and tailored to a user's specific needs
+makes it easier for them to travel around independently.
+
+Combine this with a presentation tailored to their needs (e.g. auditory guidance for blind people) and their
+dependence on other people or guidance dogs should be reduced and make them more confident to travel alone.
+
+% \section*{Timeline}
+
+\printbibliography
+
+% \appendix
+% \section{Appendix A}
+
+    
+\end{document}
