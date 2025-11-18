@@ -54,8 +54,10 @@ people with reduced mobility. Their website \cite{CreatingPersonalizedRoute} is 
 fortunately their source code remains available on GitHub
 \cite{AmsterdamAITeamAccessible_Route_PlanningRepository} for further study. Their work was aimed at 
 The Netherlands, so can not be widely reused abroad. The data source in their implementation are 3D point clouds, obtained via LiDAR scans
-\cite{fiawoPuntenwolkenVanGedetailleerde2022}. While this is an ideal source, it might not be be available
-for every location nor be kept up-to-date.
+\cite{fiawoPuntenwolkenVanGedetailleerde2022}. This method offers very detailed data, and makes precise
+mapping of the environment possible, including walkway width, curb heights, as well as fixed obstacles 
+such as bins and benches. While this is an ideal source, it is very resource intensive and might not be 
+available for every location nor be kept up-to-date.
 
 \textcite{cohenRoutePlanningBlind2021} describe an implementation of a route planner for blind people 
 based on a weighted graph. Planning a route for less mobile people could be similar in idea, but with 
@@ -78,13 +80,19 @@ This is important since OpenStreetMap depends on volunteers to gather and insert
 it is to add all the data required for accessibility, the more data will be made available, and the 
 better an accessible route planner will be able to work.
 
-In \citeyear{neisMeasuringReliabilityWheelchair2015a} \textcite{neisMeasuringReliabilityWheelchair2015a} 
-already researched using OpenStreetMap as source data. \textcite{dzaficImprovingWheelchairRoute2020} builds
-on this an proposes the use of a special route planning application in cooperation with a more advanced
+Earlier research by \citeauthor{neisMeasuringReliabilityWheelchair2015a} 
+\textcite{neisMeasuringReliabilityWheelchair2015a} studied the viability of using OpenStreetMap as source 
+data. \textcite{dzaficImprovingWheelchairRoute2020} build
+on this and proposes the use of a specialized route planning application in cooperation with a more advanced
 wheelchair capable of e.g. climbing stairs. While an interesting thought, it is not something 
 available to everyone. 10 years have passed since \citeauthor{neisMeasuringReliabilityWheelchair2015a}'s
 original research and much might have changed in the meantime on the detail available in OpenStreetMap.
 
+Literature shows a wide variety of approaches to accessible route planning. Each has trade-offs in 
+scalability (can it easily be applied to other locations?), data quality (high quality scans or 
+crowd sourced data). The use of OpenStreetMap offers a practical path to more widespread accessible 
+route planning. While crowd sourcing could have a negative connotation, it also means that the source
+data can be, and is, continuously improved.
 
 
 
