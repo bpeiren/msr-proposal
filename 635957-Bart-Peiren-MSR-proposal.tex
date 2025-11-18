@@ -98,34 +98,74 @@ data can be, and is, continuously improved.
 
 \section*{Research methodology}
 
-As we intend to build a route planner for less mobile people, we should first define our precise target
-audience. There are various forms of reduced mobility: wheelchair bound people, people using crutches temporarily 
-or permanently, being less mobile due to age, blindness, \dots. Do we take all forms into account, or do we focus on a certain subgroup?
+Developing an accessible route planner for people with limited mobility consists of multiple phases. To start,
+we need to define our precise scope and target audience. There are various forms of reduced mobility: 
+wheelchair bound people, people using crutches temporarily or permanently, the elderly, visually impaired people,
+and many more. We need to decide whether we take multiple forms into account, or whether we focus on a certain subgroup.
+To ensure that the planner is suited for real-world use, we need to have representatives of each subgroup to
+cover their specific needs.
 
-Once we know our target audience, we need to define their needs for an \textit{accessible route}. Several 
-aspects impact a route:
+Essential to this research is the source data. Using OpenStreetMap, we ensure we have freely available mapping
+for most locations. The level of detail varies from location to location, so this needs to be assessed for our
+concrete case. Should the detail be insufficient, additional data might be gathered via multiple methods 
+(manual charting, municipal data, etc.). This data will be fed back into OpenStreetMap to ensure that any
+new data is not kept to this research, but is freely available as well. Checking the available data will 
+consist of validations on the presence of sidewalk data, sidewalk width, slope data, surface type, presence
+of stairs, and curb height.
+
+With both our audience and map data available, we can define which criteria decide an \textit{accessible route}.
+These criteria include:
 
 \begin{itemize}
   \item What kind of slope is acceptable?
   \item What is the impact of different kinds of surface: concrete, paving stones, grass, mud, cobblestones, etc.
-  \item Is the walkway separated from the road?
-  \item How wide is the walkway?
+  \item Is the sidewalk separated from the road?
+  \item How wide is the sidewalk?
   \item Is there a curb, and how high is it?
-  \item Are there stairs? Do they include a ramp?
+  \item Are there stairs? Do they include a ramp? Are they open to the side? Do they have handrails?
 \end{itemize}
 
-Using these requirements, we can assign different weights to the different aspects. Given that different aspects
-impact different ableness differently, weights could differ for different populations.
+Not all of these criteria will be of equal importance to each subgroup, or even to each individual. To assign
+appropriate weights to various profiles, we will need input from the representatives as well as user feedback.
+This ensures that the route planner has a basic set of profiles which can be used, while individual users
+can tailor it to their own needs and preferences.
 
-When building the route planner, it will need to take these weights into account based on a chosen profile.
+Being able to personalize your profile is key since it helps to take into account the criteria which you
+as an individual find important. The route planner will create routes taking the individual profile into 
+account, which makes for a route best suited for one's specific needs.
+
+The essence of the route planner will be the algorithm calculating the optimal route for a given profile, 
+based on the weights assigned to this profile. A weighted graph will be implemented where each section of the 
+route is assigned a certain weight based on the weights of the profile. This section weight shows how accessible
+the section is for this profile. To decide the weights we could use multi criteria decision making.
+
+The effectiveness of the route planner will be evaluated based on user testing with multiple participants from
+each of our target groups. This testing will be done both by simulating routes as well as real world validation
+of the suggested routes. Correctness of the routes and user satisfaction are key to having a successful route planner.
+
+Given that we are working with sensitive data such as user disabilities and user location, privacy must be 
+one of the foundations on which the route planner is built. This must be considered in every stage of data
+collection and processing.
+
 
 \section*{Expected results}
 
-Planning routes based on commonly and freely available mapping data and tailored to a user's specific needs
-makes it easier for them to travel around independently.
+The goal of this research is to create a prototype iOS application able to plan accessible routes based on
+the freely available data from OpenStreetMap tailored to the user's specific needs, making it easier for them
+to travel around independently. Success is measured by user satisfaction. Is it easier to travel around 
+independently than before? Are they more confident to travel around alone?
 
-Combine this with a presentation tailored to their needs (e.g. auditory guidance for blind people) and their
-dependence on other people or guidance dogs should be reduced and make them more confident to travel alone.
+If successful this application can be made available publicly for people to try in their own neighbourhood.
+
+Building this application will reveal the limitations of OpenStreetMap we run into. In future research one
+could consider how to alleviate these limitations by improving OpenStreetMap which everyone benefits from.
+
+Given that OpenStreetMap is crowd sourced, there is a fair chance that not all data which we require will
+be available. Where we notice it is lacking, we will enrich it to suit our needs.
+
+In other research one could investigate how LiDAR scans could provide additional data to OpenStreetMap.
+This way everyone can benefit from the scanned data rather than it being restricted to one specific use case.
+
 
 % \section*{Timeline}
 
