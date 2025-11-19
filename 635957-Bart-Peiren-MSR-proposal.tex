@@ -4,7 +4,7 @@
 \usepackage{hyperref}
 \usepackage{csquotes}
 % Use numeric citations and keep bibliography in citation order (appearance)
-\usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
+\usepackage[backend=biber,style=authoryear]{biblatex}
 \addbibresource{msr-proposal.bib}
 
 \author{Bart Peiren}
@@ -26,7 +26,7 @@ While the data obtained via a LiDAR scan offers many possibilities, it also come
 environment where we want to plan a route needs to be mapped with special devices, and afterwards this data 
 needs to be analysed so the useful data is extracted from it.
 
-OpenStreetMap \cite{OpenStreetMap} already provides a map for most of the world. It might not be detailed 
+\citeauthor{OpenStreetMap} already provides a map for most of the world. It might not be detailed 
 enough for all use, but most likely those areas will not be LiDAR scanned either. 
 
 If we build an accessible route planner based on OpenStreetMap, in a later phase the LiDAR data can be processed
@@ -50,11 +50,12 @@ accessible routes for \textit{people with motor disabilities} in Quebec. This re
 the algorithm to obtain a route than the data the algorithm is based on.
 
 In 2023-2024 Amsterdam Intelligence at the Municipality of Amsterdam Intelligence created a route planner for
-people with reduced mobility. Their website \cite{CreatingPersonalizedRoute} is no longer available, but 
+people with reduced mobility. Their website \textcite{CreatingPersonalizedRoute} is no longer available, but 
 fortunately their source code remains available on GitHub
-\cite{AmsterdamAITeamAccessible_Route_PlanningRepository} for further study. Their work was aimed at 
-The Netherlands, so can not be widely reused abroad. The data source in their implementation are 3D point clouds, obtained via LiDAR scans
-\cite{fiawoPuntenwolkenVanGedetailleerde2022}. This method offers very detailed data, and makes precise
+\textcite{AmsterdamAITeamAccessible_Route_PlanningRepository} for further study. Their work was aimed at 
+The Netherlands, so can not be widely reused abroad. The data source in their implementation are 3D point 
+clouds, obtained via LiDAR scans (\textcite{fiawoPuntenwolkenVanGedetailleerde2022}). This method offers very 
+detailed data, and makes precise
 mapping of the environment possible, including walkway width, curb heights, as well as fixed obstacles 
 such as bins and benches. While this is an ideal source, it is very resource intensive and might not be 
 available for every location nor be kept up-to-date.
@@ -74,13 +75,13 @@ Though limited, it might be sufficient for our purpose. It offers a wide variety
 their sidewalks. The degree of available detail in a given area decides how useful OSM could be for
 accessible route planning in this area.
 
-In \citeyear{biagiMappingAccessabilityOpenStreetMap2020} a study was conducted on different techniques of 
-adding data in OpenStreetMap with respect to accessibility \cite{biagiMappingAccessabilityOpenStreetMap2020}.
+\textcite{biagiMappingAccessabilityOpenStreetMap2020} 
+conducted a study on different techniques of adding data in OpenStreetMap with respect to accessibility.
 This is important since OpenStreetMap depends on volunteers to gather and insert all the data. The easier
 it is to add all the data required for accessibility, the more data will be made available, and the 
 better an accessible route planner will be able to work.
 
-Earlier research by \citeauthor{neisMeasuringReliabilityWheelchair2015a} 
+Earlier research by 
 \textcite{neisMeasuringReliabilityWheelchair2015a} studied the viability of using OpenStreetMap as source 
 data. \textcite{dzaficImprovingWheelchairRoute2020} build
 on this and proposes the use of a specialised route planning application in cooperation with a more advanced
